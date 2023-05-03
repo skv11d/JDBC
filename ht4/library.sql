@@ -1,0 +1,20 @@
+DROP DATABASE IF EXISTS library;
+
+CREATE DATABASE library;
+
+USE library;
+
+CREATE TABLE Authors 
+(
+	AuthorID INT AUTO_INCREMENT NOT NULL,
+    Name VARCHAR(30) NOT NULL,
+    PRIMARY KEY (AuthorID)
+);
+
+CREATE TABLE Books 
+(
+	BookID INT AUTO_INCREMENT PRIMARY KEY,
+    AuthorID INT NOT NULL,
+    Name VARCHAR(30) NOT NULL,
+    FOREIGN KEY (AuthorID) REFERENCES Authors (AuthorID)
+);
